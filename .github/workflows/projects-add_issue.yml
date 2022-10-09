@@ -5,9 +5,9 @@ on:
     types:
       - opened
       
-  pull_request_target:
-    types:
-      - opened
+  # pull_request_target:
+  #   types:
+  #     - opened
 
 jobs:
   add-to-project:
@@ -16,5 +16,5 @@ jobs:
     steps:
       - uses: actions/add-to-project@v0.3.0
         with:
-          project-url: https://github.com/orgs/rapidsai/projects/41
-          github-token: ${{ secrets.ADD_TO_PROJECT_GITHUB_TOKEN }}
+          project-url: https://github.com/fers4t/workflows/projects/5
+          github-token: ${{ secrets.GITHUB_TOKEN }}
