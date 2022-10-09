@@ -1,0 +1,14 @@
+name: "Assignees4label"
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  set-assignees:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: kyanagimoto/assignee4label@main
+      with:
+        github-token: ${{ secrets.SECRET_TOKEN }}
+        configuration-path: './label-author-match.yml'
