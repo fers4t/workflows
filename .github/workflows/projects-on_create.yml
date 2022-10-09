@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
 
 jobs:
   assign_one_project:
@@ -16,7 +16,7 @@ jobs:
       uses: docker://takanabe/github-actions-automate-projects:v0.0.1
       if: github.event.action == 'closed'
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
         GITHUB_PROJECT_URL: https://github.com/users/fers4t/projects/5
         GITHUB_PROJECT_COLUMN_NAME: 'Done'
     
