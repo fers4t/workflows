@@ -1,0 +1,24 @@
+name: Auto Assign New Issues to Triage Project
+
+on:
+  issues:
+    types: [closed]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign to New Issues to Triage Project
+    steps:
+    - name: Process feature issues
+      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
+      if: contains(github.event.issue.labels.*.name, 'backlog') 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_PROJECT_URL: https://github.com/fers4t/workflows/projects/5
+        GITHUB_PROJECT_COLUMN_NAME: 'Backlog'
+    
+
+
