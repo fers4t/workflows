@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: Naturalclar/issue-action@v2.0.2
         with:
+          github-token: "${{ secrets.SECRET_TOKEN }}"
           title-or-body: "both"
           parameters: >
             [
@@ -17,6 +18,7 @@ jobs:
             ]
       - uses: Naturalclar/issue-action@v2.0.2
         with:
+          github-token: "${{ secrets.SECRET_TOKEN }}"
           title-or-body: "both"
           parameters: >
             [
