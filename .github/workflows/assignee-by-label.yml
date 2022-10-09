@@ -1,14 +1,24 @@
-name: "Assignees4label"
+name: "Set Issue Label and Assignee"
 on:
   issues:
-    types: [labeled]
+    types: [opened]
+  
 
 jobs:
-  set-assignees:
+  test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: kyanagimoto/assignee4label@main
-      with:
-        github-token: ${{ secrets.SECRET_TOKEN }}
-        configuration-path: './label-author-match.yml'
+      - uses: Naturalclar/issue-action@v2.0.2
+        with:
+          title-or-body: "both"
+          parameters: >
+            [
+            {"keywords":["UI", "design"],"labels":["UI", "design"],"assignees":["habibokumus"]}
+            ]
+      - uses: Naturalclar/issue-action@v2.0.2
+        with:
+          title-or-body: "both"
+          parameters: >
+            [
+            {"keywords":["backend", "feature", "API"],"labels":["backend", "feature"],"assignees":["fers4t"]}
+            ]
