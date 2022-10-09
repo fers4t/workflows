@@ -17,8 +17,7 @@ jobs:
       if: contains(github.event.issue.labels.*.name, 'backlog') 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: https://github.com/fers4t/workflows/projects/5
+        GITHUB_PROJECT_URL: https://github.com/users/fers4t/projects/5
         GITHUB_PROJECT_COLUMN_NAME: 'Backlog'
     
-
 
