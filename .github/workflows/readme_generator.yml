@@ -1,0 +1,22 @@
+name: GitHub README Generator
+
+on:
+  schedule:
+    - cron: '* 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    name: GitHub README Generator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: th3c0d3br34ker/github-readme-info@master
+        with:
+          GH_TOKEN: ${{ secrets.SECRET_TOKEN }}
+          TIMEZONE: 'Europe/Istanbul'
+          SHOW_LINES_OF_CODE: 'True'
+          SHOW_PROFILE_VIEWS: 'True'
+          SHOW_DAILY_COMMIT: 'True'
+          SHOW_WEEKLY_COMMIT: 'True'
+          SHOW_LANGUAGE: 'True'
+          SHOW_TOTAL_CONTRIBUTIONS: 'True'

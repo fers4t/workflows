@@ -1,0 +1,20 @@
+name: Inactive Issue / PR
+
+on:
+  schedule:
+  - cron: 0 0 * * 4 ## 4 days
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/stale@v5
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'I am alone since 4 days.'
+        # stale-pr-message: 'Stale pull request message'
+        stale-issue-label: 'inactive-issue'
+        # stale-pr-label: 'no-pr-activity'
